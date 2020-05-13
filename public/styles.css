@@ -13,9 +13,13 @@ body {
   background-size: cover;
   width: 100vw;
   height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+}
+
+.header {
+  text-align: center;
+  padding: 2.5rem;
+  height: 10vh;
+  font-size: 1.5rem;
 }
 
 .container {
@@ -24,11 +28,16 @@ body {
   text-align: center;
   background-color: rgba(0, 0, 0, 0.9);
   width: 40rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
 .container h1 {
-  font-size: 40px;
+  font-size: 2.5rem;
   font-weight: 200;
+  padding: 1rem;
 }
 
 input {
@@ -56,4 +65,15 @@ button {
   border-radius: 3px;
   width: 250px;
   font-size: 18px;
+}
+
+button:hover {
+  background-color: #000;
+  color: #fff;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+
+button:active {
+  transform: scale(0.9);
 }
