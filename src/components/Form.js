@@ -20,53 +20,12 @@ export default function Form() {
 
   function getData(e) {
     const { value, name } = e.target;
-    const clientObject = {
-      firstName: clientInfo.firstName,
-      lastName: clientInfo.lastName,
-      email: clientInfo.email,
-      address: clientInfo.address,
-      city: clientInfo.city,
-      state: clientInfo.state,
-      zipcode: clientInfo.zipcode,
-    };
 
-    setClientInfo((clientInfo) => {
-      if (name === 'firstName') {
-        return {
-          ...clientInfo,
-          firstName: value,
-        };
-      } else if (name === 'lastName') {
-        return {
-          ...clientInfo,
-          lastName: value,
-        };
-      } else if (name === 'email') {
-        return {
-          ...clientInfo,
-          email: value,
-        };
-      } else if (name === 'address') {
-        return {
-          ...clientInfo,
-          address: value,
-        };
-      } else if (name === 'city') {
-        return {
-          ...clientInfo,
-          city: value,
-        };
-      } else if (name === 'state') {
-        return {
-          ...clientInfo,
-          state: value,
-        };
-      } else if (name === 'zipcode') {
-        return {
-          ...clientInfo,
-          zipcode: value,
-        };
-      }
+    setClientInfo((client) => {
+      return {
+        ...client,
+        [name]: value,
+      };
     });
   }
 
