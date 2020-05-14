@@ -21,75 +21,75 @@ export default function Form() {
   function getData(e) {
     const { value, name } = e.target;
 
-    setClientInfo((prevValue) => {
+    setClientInfo((clientInfo) => {
       if (name === 'firstName') {
         return {
           firstName: value,
-          lastName: prevValue.lastName,
-          email: prevValue.email,
-          address: prevValue.address,
-          city: prevValue.city,
-          state: prevValue.state,
-          zipcode: prevValue.zipcode,
+          lastName: clientInfo.lastName,
+          email: clientInfo.email,
+          address: clientInfo.address,
+          city: clientInfo.city,
+          state: clientInfo.state,
+          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'lastName') {
         return {
-          firstName: prevValue.firstName,
+          firstName: clientInfo.firstName,
           lastName: value,
-          email: prevValue.email,
-          address: prevValue.address,
-          city: prevValue.city,
-          state: prevValue.state,
-          zipcode: prevValue.zipcode,
+          email: clientInfo.email,
+          address: clientInfo.address,
+          city: clientInfo.city,
+          state: clientInfo.state,
+          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'email') {
         return {
-          firstName: prevValue.firstName,
-          lastName: prevValue.lastName,
+          firstName: clientInfo.firstName,
+          lastName: clientInfo.lastName,
           email: value,
-          address: prevValue.address,
-          city: prevValue.city,
-          state: prevValue.state,
-          zipcode: prevValue.zipcode,
+          address: clientInfo.address,
+          city: clientInfo.city,
+          state: clientInfo.state,
+          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'address') {
         return {
-          firstName: prevValue.firstName,
-          lastName: prevValue.lastName,
-          email: prevValue.email,
+          firstName: clientInfo.firstName,
+          lastName: clientInfo.lastName,
+          email: clientInfo.email,
           address: value,
-          city: prevValue.city,
-          state: prevValue.state,
-          zipcode: prevValue.zipcode,
+          city: clientInfo.city,
+          state: clientInfo.state,
+          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'city') {
         return {
-          firstName: prevValue.firstName,
-          lastName: prevValue.lastName,
-          email: prevValue.email,
-          address: prevValue.address,
+          firstName: clientInfo.firstName,
+          lastName: clientInfo.lastName,
+          email: clientInfo.email,
+          address: clientInfo.address,
           city: value,
-          state: prevValue.state,
-          zipcode: prevValue.zipcode,
+          state: clientInfo.state,
+          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'state') {
         return {
-          firstName: prevValue.firstName,
-          lastName: prevValue.lastName,
-          email: prevValue.email,
-          address: prevValue.address,
-          city: prevValue.city,
+          firstName: clientInfo.firstName,
+          lastName: clientInfo.lastName,
+          email: clientInfo.email,
+          address: clientInfo.address,
+          city: clientInfo.city,
           state: value,
-          zipcode: prevValue.zipcode,
+          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'zipcode') {
         return {
-          firstName: prevValue.firstName,
-          lastName: prevValue.lastName,
-          email: prevValue.email,
-          address: prevValue.address,
-          city: prevValue.city,
-          state: prevValue.state,
+          firstName: clientInfo.firstName,
+          lastName: clientInfo.lastName,
+          email: clientInfo.email,
+          address: clientInfo.address,
+          city: clientInfo.city,
+          state: clientInfo.state,
           zipcode: value,
         };
       }
