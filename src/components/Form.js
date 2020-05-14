@@ -1,44 +1,49 @@
 import React, { useState } from 'react';
 
 export default function Form() {
-  const [firstName, setFirstName] = useState('');
-  const [lastName, setLastName] = useState('');
-  const [submittedName, setSubmittedName] = useState('');
+  const [fullName, setFullName] = useState({
+    firstName: '',
+    lastName: '',
+  });
 
-  function handleChangeFirstName(e) {
-    setFirstName(e.target.value);
+  const [showData, setShowData] = useState('');
+
+  function getData(e) {
+    const { value, name } = e.target;
+
+    setFullName((prevValue) => {
+      if (name === 'firstName') {
+        return { firstName: value, lastName: prevValue.lastName };
+      } else if (name === 'lastName') {
+        return { firstName: prevValue.firstName, lastName: value };
+      }
+    });
   }
-  function handleChangeLastName(e) {
-    setLastName(e.target.value);
-  }
 
-  function handleSubmit(e) {
-    setSubmittedName(`${firstName} ${lastName}`);
-
-    console.log(submittedName);
-
+  function displayData(e) {
+    setShowData(`${fullName.firstName} ${fullName.lastName}`);
     e.preventDefault();
   }
 
   return (
     <div className="container">
-      <h1>Hello {submittedName}</h1>
-      <form>
+      <h1>Hello {showData}</h1>
+      <form onSubmit={displayData}>
         <input
-          onChange={handleChangeFirstName}
-          value={firstName}
+          onChange={getData}
+          name="firstName"
+          value={fullName.firstName}
           type="text"
           placeholder="What's Your First Name?"
         />
         <input
-          onChange={handleChangeLastName}
-          value={lastName}
+          onChange={getData}
+          name="lastName"
+          // value={fullName.lastName}
           type="text"
           placeholder="What's Your Last Name?"
         />
-        <button onClick={handleSubmit} type="button">
-          Submit
-        </button>
+        <button>Submit</button>
       </form>
     </div>
   );
