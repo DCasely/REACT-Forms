@@ -20,13 +20,7 @@ export default function Form() {
 
   function getData(e) {
     const { value, name } = e.target;
-
-    setClientInfo((client) => {
-      return {
-        ...client,
-        [name]: value,
-      };
-    });
+    setClientInfo((client) => ({ ...client, [name]: value }));
   }
 
   function displayData(e) {
