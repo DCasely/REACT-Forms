@@ -6,11 +6,17 @@ export default function Form() {
     lastName: '',
     email: '',
     address: '',
+    city: '',
+    state: '',
+    zipcode: '',
   });
 
   const [showFullName, setShowFullName] = useState('');
   const [showEmail, setShowEmail] = useState('');
   const [showAddress, setShowAddress] = useState('');
+  const [showCity, setShowCity] = useState('');
+  const [showState, setShowState] = useState('');
+  const [showZipcode, setShowZipcode] = useState('');
 
   function getData(e) {
     const { value, name } = e.target;
@@ -22,6 +28,9 @@ export default function Form() {
           lastName: prevValue.lastName,
           email: prevValue.email,
           address: prevValue.address,
+          city: prevValue.city,
+          state: prevValue.state,
+          zipcode: prevValue.zipcode,
         };
       } else if (name === 'lastName') {
         return {
@@ -29,6 +38,9 @@ export default function Form() {
           lastName: value,
           email: prevValue.email,
           address: prevValue.address,
+          city: prevValue.city,
+          state: prevValue.state,
+          zipcode: prevValue.zipcode,
         };
       } else if (name === 'email') {
         return {
@@ -36,6 +48,9 @@ export default function Form() {
           lastName: prevValue.lastName,
           email: value,
           address: prevValue.address,
+          city: prevValue.city,
+          state: prevValue.state,
+          zipcode: prevValue.zipcode,
         };
       } else if (name === 'address') {
         return {
@@ -43,6 +58,39 @@ export default function Form() {
           lastName: prevValue.lastName,
           email: prevValue.email,
           address: value,
+          city: prevValue.city,
+          state: prevValue.state,
+          zipcode: prevValue.zipcode,
+        };
+      } else if (name === 'city') {
+        return {
+          firstName: prevValue.firstName,
+          lastName: prevValue.lastName,
+          email: prevValue.email,
+          address: prevValue.address,
+          city: value,
+          state: prevValue.state,
+          zipcode: prevValue.zipcode,
+        };
+      } else if (name === 'state') {
+        return {
+          firstName: prevValue.firstName,
+          lastName: prevValue.lastName,
+          email: prevValue.email,
+          address: prevValue.address,
+          city: prevValue.city,
+          state: value,
+          zipcode: prevValue.zipcode,
+        };
+      } else if (name === 'zipcode') {
+        return {
+          firstName: prevValue.firstName,
+          lastName: prevValue.lastName,
+          email: prevValue.email,
+          address: prevValue.address,
+          city: prevValue.city,
+          state: prevValue.state,
+          zipcode: value,
         };
       }
     });
@@ -52,6 +100,9 @@ export default function Form() {
     setShowFullName(`${clientInfo.firstName} ${clientInfo.lastName}`);
     setShowEmail(clientInfo.email);
     setShowAddress(clientInfo.address);
+    setShowCity(clientInfo.city);
+    setShowState(clientInfo.state);
+    setShowZipcode(clientInfo.zipcode);
     e.preventDefault();
   }
 
@@ -86,7 +137,28 @@ export default function Form() {
           name="address"
           value={clientInfo.address}
           type="text"
-          placeholder="What's Your Address?"
+          placeholder="What's Your Street Address?"
+        />
+        <input
+          onChange={getData}
+          name="city"
+          value={clientInfo.city}
+          type="text"
+          placeholder="City"
+        />
+        <input
+          onChange={getData}
+          name="state"
+          value={clientInfo.state}
+          type="text"
+          placeholder="State"
+        />
+        <input
+          onChange={getData}
+          name="zipcode"
+          value={clientInfo.zipcode}
+          type="text"
+          placeholder="Zipcode"
         />
         <button>Submit</button>
       </form>
@@ -94,6 +166,9 @@ export default function Form() {
       <div className="clientInfo">
         <h2>Email: {showEmail} </h2>
         <h2>Address: {showAddress} </h2>
+        <h2>City: {showCity} </h2>
+        <h2>State: {showState} </h2>
+        <h2>Zipcode: {showZipcode} </h2>
       </div>
     </div>
   );
