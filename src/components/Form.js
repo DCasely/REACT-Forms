@@ -5,10 +5,12 @@ export default function Form() {
     firstName: '',
     lastName: '',
     email: '',
+    address: '',
   });
 
   const [showFullName, setShowFullName] = useState('');
   const [showEmail, setShowEmail] = useState('');
+  const [showAddress, setShowAddress] = useState('');
 
   function getData(e) {
     const { value, name } = e.target;
@@ -19,18 +21,28 @@ export default function Form() {
           firstName: value,
           lastName: prevValue.lastName,
           email: prevValue.email,
+          address: prevValue.address,
         };
       } else if (name === 'lastName') {
         return {
           firstName: prevValue.firstName,
           lastName: value,
           email: prevValue.email,
+          address: prevValue.address,
         };
       } else if (name === 'email') {
         return {
           firstName: prevValue.firstName,
           lastName: prevValue.lastName,
           email: value,
+          address: prevValue.address,
+        };
+      } else if (name === 'address') {
+        return {
+          firstName: prevValue.firstName,
+          lastName: prevValue.lastName,
+          email: prevValue.email,
+          address: value,
         };
       }
     });
@@ -39,6 +51,7 @@ export default function Form() {
   function displayData(e) {
     setShowFullName(`${clientInfo.firstName} ${clientInfo.lastName}`);
     setShowEmail(clientInfo.email);
+    setShowAddress(clientInfo.address);
     e.preventDefault();
   }
 
@@ -68,10 +81,20 @@ export default function Form() {
           type="text"
           placeholder="What's Your Email?"
         />
+        <input
+          onChange={getData}
+          name="address"
+          value={clientInfo.address}
+          type="text"
+          placeholder="What's Your Address?"
+        />
         <button>Submit</button>
       </form>
 
-      <h2>Email: {showEmail} </h2>
+      <div className="clientInfo">
+        <h2>Email: {showEmail} </h2>
+        <h2>Address: {showAddress} </h2>
+      </div>
     </div>
   );
 }
