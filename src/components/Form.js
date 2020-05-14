@@ -20,76 +20,50 @@ export default function Form() {
 
   function getData(e) {
     const { value, name } = e.target;
+    const clientObject = {
+      firstName: clientInfo.firstName,
+      lastName: clientInfo.lastName,
+      email: clientInfo.email,
+      address: clientInfo.address,
+      city: clientInfo.city,
+      state: clientInfo.state,
+      zipcode: clientInfo.zipcode,
+    };
 
     setClientInfo((clientInfo) => {
       if (name === 'firstName') {
         return {
+          ...clientInfo,
           firstName: value,
-          lastName: clientInfo.lastName,
-          email: clientInfo.email,
-          address: clientInfo.address,
-          city: clientInfo.city,
-          state: clientInfo.state,
-          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'lastName') {
         return {
-          firstName: clientInfo.firstName,
+          ...clientInfo,
           lastName: value,
-          email: clientInfo.email,
-          address: clientInfo.address,
-          city: clientInfo.city,
-          state: clientInfo.state,
-          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'email') {
         return {
-          firstName: clientInfo.firstName,
-          lastName: clientInfo.lastName,
+          ...clientInfo,
           email: value,
-          address: clientInfo.address,
-          city: clientInfo.city,
-          state: clientInfo.state,
-          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'address') {
         return {
-          firstName: clientInfo.firstName,
-          lastName: clientInfo.lastName,
-          email: clientInfo.email,
+          ...clientInfo,
           address: value,
-          city: clientInfo.city,
-          state: clientInfo.state,
-          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'city') {
         return {
-          firstName: clientInfo.firstName,
-          lastName: clientInfo.lastName,
-          email: clientInfo.email,
-          address: clientInfo.address,
+          ...clientInfo,
           city: value,
-          state: clientInfo.state,
-          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'state') {
         return {
-          firstName: clientInfo.firstName,
-          lastName: clientInfo.lastName,
-          email: clientInfo.email,
-          address: clientInfo.address,
-          city: clientInfo.city,
+          ...clientInfo,
           state: value,
-          zipcode: clientInfo.zipcode,
         };
       } else if (name === 'zipcode') {
         return {
-          firstName: clientInfo.firstName,
-          lastName: clientInfo.lastName,
-          email: clientInfo.email,
-          address: clientInfo.address,
-          city: clientInfo.city,
-          state: clientInfo.state,
+          ...clientInfo,
           zipcode: value,
         };
       }
