@@ -9,8 +9,9 @@ body {
   font-family: 'Source Sans Pro', sans-serif;
   color: white;
   font-weight: 300;
-  background-image: url(./images/reacthooksback.png);
+  background-image: url(./images/backgroundparadise.jpeg);
   background-size: cover;
+  background-repeat: no-repeat;
   width: 100vw;
   height: 100vh;
 }
@@ -18,15 +19,15 @@ body {
 .header {
   text-align: center;
   padding: 2.5rem;
-  height: 10vh;
+  height: 10rem;
   font-size: 1.5rem;
 }
 
 .container {
-  margin: 10% auto;
-  padding: 80px 0;
+  margin: 0 auto;
+  padding: 1rem 0;
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.75);
   width: 40rem;
   display: flex;
   justify-content: center;
@@ -58,7 +59,7 @@ input {
 button {
   appearance: none;
   outline: 0;
-  background-color: white;
+  background-color: rgb(255, 255, 255);
   border: 0;
   padding: 10px 15px;
   color: #000;
@@ -86,4 +87,18 @@ button:active {
 
 .clientInfo h2 {
   font-size: 1rem;
+  border-bottom: 1px solid #fff;
+  padding-bottom: 0.25rem;
+  margin: 1rem;
+}
+
+.clear-btn {
+  margin: 1rem 0;
+  background-color: #000;
+  border: 1px solid #fff;
+  color: #fff;
+}
+
+.clear-btn:hover {
+  background-color: red;
 }

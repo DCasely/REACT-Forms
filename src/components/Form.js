@@ -2,13 +2,13 @@ import React, { useState } from 'react';
 
 export default function Form() {
   const [clientInfo, setClientInfo] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    address: '',
-    city: '',
-    state: '',
-    zipcode: '',
+    firstName: 'Davin',
+    lastName: 'Casely',
+    email: 'davin@davincasely.com',
+    address: '1000 Main St',
+    city: 'Miami',
+    state: 'FL',
+    zipcode: '33333',
   });
 
   const [showFullName, setShowFullName] = useState('');
@@ -38,9 +38,32 @@ export default function Form() {
     e.preventDefault();
   }
 
+  function clearData() {
+    setClientInfo({
+      firstName: '',
+      lastName: '',
+      email: '',
+      address: '',
+      city: '',
+      state: '',
+      zipcode: '',
+    });
+
+    setShowFullName('');
+    setShowEmail('');
+    setShowAddress('');
+    setShowCity('');
+    setShowState('');
+    setShowZipcode('');
+  }
+
   return (
     <div className="container">
-      <h1>Hello {showFullName}</h1>
+      <h1>
+        {showFullName.length === 0
+          ? 'Book Your Trip To Paradise'
+          : `Welcome to Paradise ${showFullName}`}
+      </h1>
 
       <form onSubmit={displayData}>
         <input
@@ -92,15 +115,19 @@ export default function Form() {
           type="text"
           placeholder="Zipcode"
         />
-        <button>Submit</button>
+        <button type="submit">Submit</button>
       </form>
 
       <div className="clientInfo">
+        <h2>Name: {showFullName} </h2>
         <h2>Email: {showEmail} </h2>
         <h2>Address: {showAddress} </h2>
         <h2>City: {showCity} </h2>
         <h2>State: {showState} </h2>
         <h2>Zipcode: {showZipcode} </h2>
+        <button onClick={clearData} className="clear-btn" type="button">
+          Clear Data
+        </button>
       </div>
     </div>
   );
